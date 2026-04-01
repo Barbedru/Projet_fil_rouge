@@ -18,19 +18,18 @@ class Validation:
 
 
 
-
 class Utilisateur:
     # Constructeur
-    def __init__(self, name, id):
+    def __init__(self, name: str, id: int):
         self.name = name
         self.id = id
     # équivalent toString
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.name} - {self.id}"
-
 
     def peut_valider(self, competence_id: int) -> bool:
         return False
+
 
 class Promotion:
     # Constructeur
@@ -65,7 +64,7 @@ class Apprenant(Utilisateur):
         else:
             return False
 
-    def ajouter_competence(self, competence_id: int):
+    def ajouter_competence(self, competence_id: int) -> None:
         if competence_id in self._competences_validees:
             raise ValueError("La compétence exist déjà")
         else:
@@ -80,9 +79,9 @@ class Formateur(Utilisateur):
 
 
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
 
-    ####Test ajout compétences
+    #Test ajout compétences
     #apprenant_1 = Apprenant("Bidule", 1, [1,2,3])
     #print(apprenant_1.name , apprenant_1.id, apprenant_1.peut_valider(1))
     #apprenant_1.ajouter_competence(4)
@@ -110,10 +109,10 @@ if __name__ == "__main__":
         #print(utilisateur)
 
     ####Test Dataclass
-    Skill_Java = Competence(1,"Java")
-    print(Skill_Java)
-    Validation_Java = Validation(1,1,1,"Validé",True)
-    print(Validation_Java)
+    #Skill_Java = Competence(1,"Java")
+    #print(Skill_Java)
+    #Validation_Java = Validation(1,1,1,"Validé",True)
+    #print(Validation_Java)
 
 
 
