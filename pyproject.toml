@@ -23,3 +23,6 @@ addopts = "--cov=. --cov-fail-under=80"
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
+
+[tool.mypy]
+strict = true
