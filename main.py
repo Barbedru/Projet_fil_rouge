@@ -7,6 +7,9 @@ class Utilisateur:
         self.name = name
         self.id = id
 
+    def __str__(self):
+        return f"{self.name} - {self.id}"
+
 
     def peut_valider(self, competence_id: int) -> bool:
         return False
@@ -20,6 +23,15 @@ class Promotion:
             raise ValueError("L'utilisateur déjà existe déjà")
         else:
             self.utilisateurs.append(utilisateur)
+
+    def __add__(self, other):
+        p3 = Promotion()
+        for utilisateur in self.utilisateurs:
+            p3.ajouter_utilisateur(utilisateur)
+        for utilisateur in other.utilisateurs:
+            p3.ajouter_utilisateur(utilisateur)
+        return p3
+
 
 
 class Apprenant(Utilisateur):
@@ -51,18 +63,31 @@ class Formateur(Utilisateur):
 
 if __name__ == "__main__":
 
+    ####Test ajout compétences
+    #apprenant_1 = Apprenant("Bidule", 1, [1,2,3])
+    #print(apprenant_1.name , apprenant_1.id, apprenant_1.peut_valider(1))
+    #apprenant_1.ajouter_competence(4)
 
-    apprenant_1 = Apprenant("Bidule", 1, [1,2,3])
-    print(apprenant_1.name , apprenant_1.id, apprenant_1.peut_valider(1))
-    apprenant_1.ajouter_competence(4)
+    ####Test ajout utilisateru à promotion
+    #promotion_1 = Promotion()
+    #utilisateur_1 = Utilisateur("Truc",2)
 
+    #promotion_1.ajouter_utilisateur(utilisateur_1)
+    #promotion_1.ajouter_utilisateur(utilisateur_1)
 
-    promotion_1 = Promotion()
-    utilisateur_1 = Utilisateur("Truc",2)
+    #print(apprenant_1)
 
-    promotion_1.ajouter_utilisateur(utilisateur_1)
-    promotion_1.ajouter_utilisateur(utilisateur_1)
+    ####Test fusion de Promotion
 
+    p1 = Promotion()
+    p2 = Promotion()
+
+    p1.ajouter_utilisateur(Utilisateur("Machin", 1))
+    p2.ajouter_utilisateur(Utilisateur("Bidule",2))
+    p3 = p1 + p2
+
+    for utilisateur in p3.utilisateurs:
+        print(utilisateur)
 
 
 
