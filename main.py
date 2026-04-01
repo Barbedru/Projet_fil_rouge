@@ -8,9 +8,18 @@ class Utilisateur:
         self.id = id
 
 
-
     def peut_valider(self, competence_id: int) -> bool:
         return False
+
+class Promotion:
+    def __init__(self):
+        self.utilisateurs = []
+
+    def ajouter_utilisateur(self, utilisateur: Utilisateur):
+        if utilisateur in self.utilisateurs:
+            raise ValueError("L'utilisateur déjà existe déjà")
+        else:
+            self.utilisateurs.append(utilisateur)
 
 
 class Apprenant(Utilisateur):
@@ -41,10 +50,19 @@ class Formateur(Utilisateur):
 
 
 if __name__ == "__main__":
+
+
     apprenant_1 = Apprenant("Bidule", 1, [1,2,3])
     print(apprenant_1.name , apprenant_1.id, apprenant_1.peut_valider(1))
     apprenant_1.ajouter_competence(4)
-    apprenant_1.ajouter_competence(1)
+
+
+    promotion_1 = Promotion()
+    utilisateur_1 = Utilisateur("Truc",2)
+
+    promotion_1.ajouter_utilisateur(utilisateur_1)
+    promotion_1.ajouter_utilisateur(utilisateur_1)
+
 
 
 
