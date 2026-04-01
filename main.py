@@ -1,3 +1,21 @@
+from dataclasses import dataclass
+
+@dataclass
+class Competence:
+    id : int
+    nom : str
+
+
+
+@dataclass
+class Validation:
+    id : int
+    apprenant_id : int
+    competence_id : int
+    statut : str
+    pre_valid_par : bool
+
+
 
 
 
@@ -6,7 +24,7 @@ class Utilisateur:
     def __init__(self, name, id):
         self.name = name
         self.id = id
-
+    # équivalent toString
     def __str__(self):
         return f"{self.name} - {self.id}"
 
@@ -15,6 +33,7 @@ class Utilisateur:
         return False
 
 class Promotion:
+    # Constructeur
     def __init__(self):
         self.utilisateurs = []
 
@@ -77,17 +96,24 @@ if __name__ == "__main__":
 
     #print(apprenant_1)
 
+
     ####Test fusion de Promotion
 
-    p1 = Promotion()
-    p2 = Promotion()
+    #p1 = Promotion()
+    #p2 = Promotion()
 
-    p1.ajouter_utilisateur(Utilisateur("Machin", 1))
-    p2.ajouter_utilisateur(Utilisateur("Bidule",2))
-    p3 = p1 + p2
+    #p1.ajouter_utilisateur(Utilisateur("Machin", 1))
+    #p2.ajouter_utilisateur(Utilisateur("Bidule",2))
+    #p3 = p1 + p2
 
-    for utilisateur in p3.utilisateurs:
-        print(utilisateur)
+    #for utilisateur in p3.utilisateurs:
+        #print(utilisateur)
+
+    ####Test Dataclass
+    Skill_Java = Competence(1,"Java")
+    print(Skill_Java)
+    Validation_Java = Validation(1,1,1,"Validé",True)
+    print(Validation_Java)
 
 
 
