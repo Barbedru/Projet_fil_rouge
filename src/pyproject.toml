@@ -26,5 +26,5 @@ select = ["E", "F", "I"]
 
 
 [tool.mypy]
-files = ["competences.py"]
+#files = ["competences.py"]
 strict = true

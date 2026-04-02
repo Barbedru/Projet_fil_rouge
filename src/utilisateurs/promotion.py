@@ -13,10 +13,4 @@ class Promotion:
         else:
             self.utilisateurs.append(utilisateur)
 
-    def __add__(self, other: "Promotion") -> "Promotion":
-        p3 = Promotion()
-        for utilisateur in self.utilisateurs:
-            p3.ajouter_utilisateur(utilisateur)
-        for utilisateur in other.utilisateurs:
-            p3.ajouter_utilisateur(utilisateur)
-        return p3
+   # def __add__(self, promotion: "Promotion") -> "Promotion":
