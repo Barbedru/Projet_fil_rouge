@@ -5,7 +5,7 @@ from utilisateurs.Utilisateur import Utilisateur
 class Apprenant(Utilisateur):
 
     # Constructeur
-    def __init__(self, name, id, competences_validees):
+    def __init__(self, name : str, id: int, competences_validees : list[int]) -> None:
         super().__init__(name, id)
         self._competences_validees = competences_validees
 
