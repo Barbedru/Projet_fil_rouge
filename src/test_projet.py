@@ -22,7 +22,7 @@ def test_ajouter_competence_doublon():
         a.ajouter_competence(1)
 
 def test_utilisateur_peut_valider():
-    u = Utilisateur("Alice", 1)
+    u = Utilisateur("TyTy", 1)
     assert u.peut_valider(1) == False
 
 def test_formateur_peut_valider():
